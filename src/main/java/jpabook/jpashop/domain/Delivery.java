@@ -24,6 +24,7 @@ public class Delivery {
     @Setter
     private Order order;
 
+    @Setter
     private Address address;
 
     @Enumerated(EnumType.STRING)

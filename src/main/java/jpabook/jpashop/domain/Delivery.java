@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Getter
-public class Deilvery {
+public class Delivery {
 
     @Id
     @GeneratedValue
@@ -20,6 +21,7 @@ public class Deilvery {
     private Long id;
 
     @OneToOne(mappedBy = "delivery")
+    @Setter
     private Order order;
 
     private Address address;

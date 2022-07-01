@@ -1,10 +1,11 @@
-package jpabook.jpashop.Service;
+package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.item.Book;
+import jpabook.jpashop.exception.NotEnoughStockException;
 import jpabook.jpashop.repository.OrderRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @SpringBootTest
@@ -57,8 +59,10 @@ class OrderServiceTest {
     }
 
     @Test
-    public void 주문취소() throws Exception {
-
+    public void 상품주문_재고수량초과() throws Exception {
+        assertThrows(NotEnoughStockException.class, () -> {
+            
+        });
     }
 
     @Test
